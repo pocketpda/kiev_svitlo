@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the kievsvitlo.kievsvitlo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kievsvitlo.kievsvitlo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-25 17:34+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/Main.qml:39 ../qml/Main.qml:43 kievsvitlo.desktop.in.h:1
+msgid "KievSvitlo"
+msgstr ""
+
+#: ../qml/Main.qml:49
+msgid "Інфо"
+msgstr ""
+
+#: ../qml/Main.qml:114
+msgid "Інформація"
+msgstr ""
+
+#: ../qml/Main.qml:121
+msgid "Дані беруться з сайту"
+msgstr ""
+
+#: ../qml/Main.qml:138
+msgid "Автор ПО: RosT"
+msgstr ""
+
+#: ../qml/Main.qml:145
+msgid "Email: "
+msgstr ""
+
+#: ../qml/Main.qml:152
+msgid "Дата оновлення: "
+msgstr ""
+
+#: ../qml/Main.qml:159
+msgid "Поточна версія: "
+msgstr ""
+
+#: ../qml/Main.qml:164
+msgid "OK"
+msgstr ""
+
+#: ../qml/Main.qml:478
+msgid "Через 30 хв буде відключення. Початок о "
+msgstr ""
+
+#: ../qml/Main.qml:631
+msgid "Місто"
+msgstr ""
+
+#: ../qml/Main.qml:648
+msgid "Адреса"
+msgstr ""
+
+#: ../qml/Main.qml:672
+msgid "Вулиця"
+msgstr ""
+
+#: ../qml/Main.qml:736
+msgid "Будинок"
+msgstr ""
+
+#: ../qml/Main.qml:760
+msgid "Номер будинку"
+msgstr ""
+
+#: ../qml/Main.qml:825
+msgid "Завтра"
+msgstr ""
+
+#: ../qml/Main.qml:825
+msgid "Сьогодні"
+msgstr ""
+
+#: ../qml/Main.qml:834
+msgid "Графік на завтра"
+msgstr ""
+
+#: ../qml/Main.qml:834
+msgid "Графік на сьогодні"
+msgstr ""
+
+#: ../qml/Main.qml:844
+msgid "Нагадування за 30 хв"
+msgstr ""
+
+#: ../qml/Main.qml:919
+msgid "Зараз зі світлом: "
+msgstr ""

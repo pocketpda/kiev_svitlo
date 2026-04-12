@@ -1,0 +1,15 @@
+{
+    "name": "kievsvitlo.kievsvitlo",
+    "description": "Графік відключення світла у Києві",
+    "architecture": "@CLICK_ARCH@",
+    "title": "КиївСвітло",
+    "hooks": {
+        "kievsvitlo": {
+            "apparmor": "kievsvitlo.apparmor",
+            "desktop":  "kievsvitlo.desktop"
+        }
+    },
+    "version": "1.0.1",
+    "maintainer": "RosT <rostislav.tymkiv@gmail.com>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}
