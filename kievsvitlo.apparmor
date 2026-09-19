@@ -1,4 +1,4 @@
 {
-    "policy_groups": ["networking", "calendar"],
+    "policy_groups": ["networking"],
     "policy_version": 20.04
 }

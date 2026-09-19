@@ -460,12 +460,16 @@ MainView {
                     var startMinutes = slot.start
                     var remaining = startMinutes - nowMinutes
                     if (remaining >= 0 && remaining <= 15 && !isSentForSlot(slot)) {
-                        var n = Ubuntu.Notification {
-                            title: i18n.tr("КиївСвітло")
-                            text: i18n.tr("Через 15 хв буде відключення. Початок о ") + formatMinutesAsTime(startMinutes)
-                            action: ""
-                        }
-                        n.post()
+                        // QML object declarations are not valid inside JavaScript blocks.
+                        // Create the notification dynamically instead.
+                        var notification = Qt.createQmlObject(
+                            'import Lomiri.Components 1.3; Notification {}',
+                            page,
+                            "outageNotification"
+                        )
+                        notification.summary = i18n.tr("КиївСвітло")
+                        notification.body = i18n.tr("Через 15 хв буде відключення. Початок о ") + formatMinutesAsTime(startMinutes)
+                        notification.post()
                         markSentForSlot(slot)
                     }
                 }
@@ -484,8 +488,6 @@ MainView {
 
         function markSentForSlot(slot) {
             notificationSentKeys.push(slot.start + ":" + slot.end)
-        }
-            outageAlarm.save()
         }
 
         function getCurrentMinutes() {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kievsvitlo.kievsvitlo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-25 17:34+0000\n"
+"POT-Creation-Date: 2026-09-19 13:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,50 +53,54 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../qml/Main.qml:478
-msgid "Через 30 хв буде відключення. Початок о "
+#: ../qml/Main.qml:470
+msgid "КиївСвітло"
 msgstr ""
 
-#: ../qml/Main.qml:631
+#: ../qml/Main.qml:471
+msgid "Через 15 хв буде відключення. Початок о "
+msgstr ""
+
+#: ../qml/Main.qml:639
 msgid "Місто"
 msgstr ""
 
-#: ../qml/Main.qml:648
+#: ../qml/Main.qml:656
 msgid "Адреса"
 msgstr ""
 
-#: ../qml/Main.qml:672
+#: ../qml/Main.qml:680
 msgid "Вулиця"
 msgstr ""
 
-#: ../qml/Main.qml:736
+#: ../qml/Main.qml:744
 msgid "Будинок"
 msgstr ""
 
-#: ../qml/Main.qml:760
+#: ../qml/Main.qml:768
 msgid "Номер будинку"
 msgstr ""
 
-#: ../qml/Main.qml:825
+#: ../qml/Main.qml:833
 msgid "Завтра"
 msgstr ""
 
-#: ../qml/Main.qml:825
+#: ../qml/Main.qml:833
 msgid "Сьогодні"
 msgstr ""
 
-#: ../qml/Main.qml:834
+#: ../qml/Main.qml:842
 msgid "Графік на завтра"
 msgstr ""
 
-#: ../qml/Main.qml:834
+#: ../qml/Main.qml:842
 msgid "Графік на сьогодні"
 msgstr ""
 
-#: ../qml/Main.qml:844
+#: ../qml/Main.qml:852
 msgid "Нагадування за 30 хв"
 msgstr ""
 
-#: ../qml/Main.qml:919
+#: ../qml/Main.qml:927
 msgid "Зараз зі світлом: "
 msgstr ""
