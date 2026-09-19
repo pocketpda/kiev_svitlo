@@ -420,65 +420,71 @@ MainView {
             return h + ":" + m
         }
 
+        property var notificationSentKeys: []
+
         function clearOutageAlarms() {
-            if (!alarmModel || alarmModel.count === undefined) {
-                return
-            }
-            for (var i = alarmModel.count - 1; i >= 0; i--) {
-                var alarm = alarmModel.get(i)
-                if (alarm) {
-                    alarm.cancel()
+            // очистка не требуется — используем таймер
+        }
+
+        function scheduleNextOutageAlarm(groupData) {
+            // логика перенесена в checkOutageTimer
+        }
+
+        Timer {
+            id: checkOutageTimer
+            interval: 60000
+            running: true
+            repeat: true
+            onTriggered: {
+                if (!notificationsEnabled) {
+                    return
+                }
+                if (!plannedOutagesPayload || groupKey === "") {
+                    return
+                }
+                var groupData = findGroupData(plannedOutagesPayload, groupKey)
+                if (!groupData) {
+                    return
+                }
+                var todayData = groupData["today"]
+                if (!todayData || !todayData.slots) {
+                    return
+                }
+                var now = new Date()
+                var nowMinutes = now.getHours() * 60 + now.getMinutes()
+                for (var i = 0; i < todayData.slots.length; i++) {
+                    var slot = todayData.slots[i]
+                    if (slot.type !== "Definite") {
+                        continue
+                    }
+                    var startMinutes = slot.start
+                    var remaining = startMinutes - nowMinutes
+                    if (remaining >= 0 && remaining <= 15 && !isSentForSlot(slot)) {
+                        var n = Ubuntu.Notification {
+                            title: i18n.tr("КиївСвітло")
+                            text: i18n.tr("Через 15 хв буде відключення. Початок о ") + formatMinutesAsTime(startMinutes)
+                            action: ""
+                        }
+                        n.post()
+                        markSentForSlot(slot)
+                    }
                 }
             }
         }
 
-        function scheduleNextOutageAlarm(groupData) {
-            if (!notificationsEnabled) {
-                clearOutageAlarms()
-                return
-            }
-            if (!alarmModel || !outageAlarm) {
-                return
-            }
-            clearOutageAlarms()
-            var dayData = groupData["today"]
-            if (!dayData || !dayData.slots) {
-                return
-            }
-            var now = new Date()
-            var nowMinutes = now.getHours() * 60 + now.getMinutes()
-            var nextStart = -1
-            for (var i = 0; i < dayData.slots.length; i++) {
-                var slot = dayData.slots[i]
-                if (slot.type !== "Definite") {
-                    continue
-                }
-                if (slot.start > nowMinutes && (nextStart < 0 || slot.start < nextStart)) {
-                    nextStart = slot.start
+        function isSentForSlot(slot) {
+            var key = slot.start + ":" + slot.end
+            for (var i = 0; i < notificationSentKeys.length; i++) {
+                if (notificationSentKeys[i] === key) {
+                    return true
                 }
             }
-            if (nextStart < 0) {
-                return
-            }
-            var alarmMinutes = nextStart - 30
-	    if (alarmMinutes < 0) {
-	      alarmMinutes += 24 * 60
-	    }
-            if (alarmMinutes <= nowMinutes) {
-                return
-            }
-            var alarmDate = new Date(now)
-            alarmDate.setHours(Math.floor(alarmMinutes / 60))
-            alarmDate.setMinutes(alarmMinutes % 60)
-            alarmDate.setSeconds(0)
-            alarmDate.setMilliseconds(0)
+            return false
+        }
 
-            outageAlarm.reset()
-            outageAlarm.type = Alarm.OneTime
-            outageAlarm.message = i18n.tr("Через 30 хв буде відключення. Початок о ") +
-                                  formatMinutesAsTime(nextStart)
-            outageAlarm.sound = ""
-            outageAlarm.date = alarmDate
+        function markSentForSlot(slot) {
+            notificationSentKeys.push(slot.start + ":" + slot.end)
+        }
             outageAlarm.save()
         }
 
